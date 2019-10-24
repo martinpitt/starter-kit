@@ -1,0 +1,17 @@
+version: v1.0
+name: check-ubuntu-host
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+  containers:
+  - name: main
+    image: cockpit/tasks
+blocks:
+  - name: test
+    task:
+      jobs:
+        - name: test against nested standard Cockpit VM
+          commands:
+            - checkout
+            - make check
