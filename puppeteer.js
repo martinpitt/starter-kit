@@ -1,17 +1,11 @@
-import puppeteer from "puppeteer-core";
+import puppeteer from "puppeteer";
 
 const browser = await puppeteer.launch({
-    product: 'chrome',
-    executablePath: "/usr/lib64/chromium-browser/headless_shell",
-    // executablePath: '/usr/bin/chromium-browser',
-
-    // does not work in either CDP or BiDi mode with p-core
-    // product: 'firefox',
-    // executablePath: '/usr/bin/firefox',
-
+    // product: 'chrome',
+    product: 'firefox',
     // catastrophe: segfault chromium-browser (in all modes), timeout with firefox
-    // protocol: 'webDriverBiDi',
-    headless: true,
+    protocol: 'webDriverBiDi',
+    headless: false,
 });
 
 try {
